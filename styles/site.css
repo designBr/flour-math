@@ -1,4 +1,251 @@
-.label {
+@font-face {
+  font-family: 'BroArms';
+  src: url('../fonts/BrosArms.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/BrosArms.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/BrosArms.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/BrosArms.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/BrosArms.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+/*! normalize.css v1.0.1 | MIT License | git.io/normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+audio:not([controls]){display:none;height:0}
+[hidden]{display:none}
+html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+html,button,input,select,textarea{font-family:sans-serif}
+body{margin:0}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+h2{font-size:1.5em;margin:.83em 0}
+h3{font-size:1.17em;margin:1em 0}
+h4{font-size:1em;margin:1.33em 0}
+h5{font-size:.83em;margin:1.67em 0}
+h6{font-size:.75em;margin:2.33em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+blockquote{margin:1em 40px}
+dfn{font-style:italic}
+mark{background:#ff0;color:#000}
+p,pre{margin:1em 0}
+code,kbd,pre,samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em}
+pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}
+q{quotes:none}
+q:before,q:after{content:'';content:none}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-0.5em}
+sub{bottom:-0.25em}
+dl,menu,ol,ul{margin:1em 0}
+dd{margin:0 0 0 40px}
+menu,ol,ul{padding:0 0 0 40px}
+nav ul,nav ol{list-style:none;list-style-image:none}
+img{border:0;-ms-interpolation-mode:bicubic}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+form{margin:0}
+fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0;white-space:normal;*margin-left:-7px}
+button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}
+button,input{line-height:normal}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible}
+button[disabled],input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+
+/*** APP STYLES ***/
+html {
+  background: url('../images/Bakery1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.WidthContain {
+  width: 425px;
+  max-width: 425px;
+  margin: 0 auto;
+}
+
+h2 {
+  background: transparent url('../images/FlourMath.svg') no-repeat center center;
+  text-indent: -900000px;
+  height: 82px;
+}
+
+h4 {
+  font-family: 'BroArms', Fallback, sans-serif;
+  font-size: 20px;
+  color: #93365b;
+  margin: 20px 0;
+}
+
+h5 {
+  font-family: 'BroArms', Fallback, sans-serif;
+  font-size: 15px;
+  color: #666666;
+  margin: 5px 0;
+}
+
+h2 span.SpecialChar,
+h4 span.SpecialChar {
+  font-family: arial, sans-serif;
+  font-size: 1.5em;
+  vertical-align: -3px;
+}
+
+.CenterText {
+  text-align: center;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #dcdcdc, #8c8b8b, #dcdcdc);
+  background-image: -moz-linear-gradient(left, #dcdcdc, #8c8b8b, #dcdcdc);
+  background-image: -ms-linear-gradient(left, #dcdcdc, #8c8b8b, #dcdcdc);
+  background-image: -o-linear-gradient(left, #dcdcdc, #8c8b8b, #dcdcdc);
+}
+
+.LabelFieldRow {
+  font-size: 16px;
+  margin: 10px 0 22px;
+}
+
+.LabelFieldRow input {
   display: inline-block;
+  color: #7e7e7e;
+  padding: 7px;
+  margin: 0 5px 0 0;
+  border: 1px solid #eaeaea;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.LabelFieldRow .label {
+  display: block;
   width: 175px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 12px 0;
+}
+
+.TwoCol {
+  display: flex;
+}
+
+.TwoCol .Col {
+  width: 50%;
+  padding: 0 15px;
+  border-left: 1px solid #eaeaea;
+}
+
+.TwoCol .Col:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.TwoCol .Col:last-child {
+  padding-right: 0;
+}
+
+#FlourWhtGlutnFormula input {
+  width: 60px;
+}
+
+#FlourWhtGlutnFormula h4 span.bigH4 {
+  font-size: 23px;
+}
+
+.InnerFlourWhtGlutnFromulaWrap {
+  background-color: #fff;
+  padding: 1px 20px;
+  margin: 5px 0 60px;
+}
+
+.PageDesc,
+#AboutInfo {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.3em;
+}
+
+#AboutInfo {
+  display: none;
+}
+
+#AboutInfo p:first-child {
+  margin-top: 0;
+}
+
+#AboutInfo p:last-child {
+  margin-bottom: 0;
+}
+
+#AboutToggle {
+  display: block;
+  text-align: center;
+  outline: 0;
+  margin: 1em 0;
+  font-size: 12px;
+  color: #333;
+}
+
+#AboutToggle .DetailOpened {
+  display: none;
+}
+
+#AboutToggle.DetailOpen .DetailOpened {
+  display: inline;
+}
+#AboutToggle.DetailOpen .DetailClosed {
+  display: none;
+}
+
+#CardNav {
+  list-style: none;
+  margin: 15px 0 5px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 11px;
+}
+
+#CardNav li {
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+#CardNav li a {
+  display: inline-block;
+  padding: 4px 9px;
+  border-left: 1px solid #aeaeae;
+  color: #333333;
+  outline: 0;
+}
+
+#CardNav li:first-child a {
+  border-left: 0;
+}
+
+#CardNav li a.Current {
+  text-decoration: none;
+}
+
+ul#FormulaVariables {
+  font-size: 14px;
+  padding: 0 0 0 20px;
+
+}
+
+ul#FormulaVariables li {
+  margin: 3px 0;
 }

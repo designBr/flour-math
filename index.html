@@ -3,97 +3,122 @@
 <head>
   <title>Bread Math</title>
   <script
-  src="https://code.jquery.com/jquery-3.2.1.slim.js"
-  integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-  <script src="scripts.js"></script>
-  <link  rel="stylesheet" type="text/css" href="site.css">
+  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="js/scripts.js"></script>
+  <link  rel="stylesheet" type="text/css" href="styles/site.css">
 </head>
 <body class="">
-  <div id="CalcContain">
+  <div class="WidthContain">
+    <h2>Flour Math</h2>
+    <p class="PageDesc">Use this page to determine the gluten/protein level of your flour, and to calculate the amount of vital wheat gluten to add to your flour to achieve a desired protein level.</p>
+    <hr />
+    <div id="AboutInfo">
+      <p>For hobbyist bakers it can be difficult to find bread flour that has the appropriate gluten content. Recipes for things like bagels, sourdoughs, pretzels and more, can require higher gluten content than what might be found in your average grocery store flour section.</p>
+      <p>First, this basic application will help bakers determine the gluten content of flour that doesn't specify it on the package.</p>
+      <p>Second, when you need to increase the glutent content of flour you can add wheat gluten to it, which typically has a 75% gluten content. This application takes care of the somewhat complicated calculations needed to determine how much wheat gluten and flour to mix. </p>
+    </div>
+    <a href="#" id="AboutToggle"><span class="DetailClosed">More About This</span><span class="DetailOpened">Less About This</span></a>
+    <ul id="CardNav">
+      <li><a href="#" class="FlipToFront Current">Calculator</a></li>
+      <li><a href="#" class="FlipToBack" >Formulas</a></li>
+    </ul>
     <div id="FlourWhtGlutnFormula">
-      <h2>Flour Protien / Wheat Gluten Formula</h2>
-      <p class="PageDesc">Use this page to calculate the amount of vital wheat gluten to add to your flour to achieve the desired protein level</p>
-      <form>
-        <h4>Flour Being Used</h4>
-        <div class="LabelFieldRow">
-          <span class="label">Your Flour Serving Size:</span>
-          <input id="target" type="text" value="30"> grams
-        </div>
-        <div class="LabelFieldRow">
-          <span class="label">Protein Per Serving:</span>
-          <input id="target3" type="text" value="4"> grams
-        </div>
-        <div class="LabelFieldRow">
-          <span class="label">Protein Percentage:</span>
-          <span id="target4">CALC</span> %
-        </div>
+      <div class="front">
+        <div class="InnerFlourWhtGlutnFromulaWrap">
+          <form>
+            <h4><span class="bigH4">Calculate</span> Your Flour Gluten <span class="SpecialChar">/</span> Protein Level</h4>
+            <div class="LabelFieldRow">
+              <span class="label">Your Flour Serving Size:</span>
+              <input id="target" type="text" value="30"> grams
+            </div>
+            <div class="LabelFieldRow">
+              <span class="label">Protein Per Serving:</span>
+              <input id="target3" type="text" value="4"> grams
+            </div>
+            <div class="LabelFieldRow">
+              <span class="label">Protein Percentage:</span>
+              <span id="target4">CALC</span> %
+            </div>
 
-        <hr />
+            <hr />
 
-        <h4>Desired End Product</h4>
-        <div class="LabelFieldRow">
-          <span class="label">Target Flour Amount:</span>
-          <input id="target5" type="text" value="100"> grams
+            <h4><span class="bigH4">Increase</span> Your Flour Gluten <span class="SpecialChar">/</span> Protein Level</h4>
+            <div class="TwoCol">
+              <div class="Col">
+                <h5>Desired End Product</h5>
+                <div class="LabelFieldRow">
+                  <span class="label">Target Flour Amount:</span>
+                  <input id="target5" type="text" value="100"> grams
+                </div>
+                <div class="LabelFieldRow">
+                  <span class="label">Target Protein/Gluten:</span>
+                  <input id="target6" type="text" value="15"> %
+                </div>
+              </div>
+              <div class="Col">
+                <h5>Required Mixture</h5>
+                <div class="LabelFieldRow">
+                  <span class="label">Your Flour: </span>
+                  <span id="target7">CALC</span> grams
+                </div>
+                <div class="LabelFieldRow">
+                  <span class="label">Wheat Gluten: </span>
+                  <span id="target8">CALC</span> grams
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="LabelFieldRow">
-          <span class="label">Target Protein/Gluten:</span>
-          <input id="target6" type="text" value="15"> %
-        </div>
+      </div>
+      <div class="back">
+        <div class="InnerFlourWhtGlutnFromulaWrap">
+          <h4 class="CenterText"><span class="bigH4">Protein</span> Calculator Formula</h4>
+          <!-- $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$ -->
+          $$
+          \begin{align}
+            g = \frac{p}{f}
+          \end{align}
+          $$
+          <hr />
+          <h4 class="CenterText"><span class="bigH4">Increase</span> Protein Formula</h4>
+          <h5>Wheat Gluten Required</h5>
+          $$
+          \begin{align}
+            w = \left(\frac{\frac{(G - p)}{100}}{0.75-\frac{p}{100}}\right)F
+          \end{align}
+          $$
+          <h5>Flour Required Required</h5>
+          $$
+          \begin{align}
+            r = {F}-{w}
+          \end{align}
+          $$
+          <hr />
+          <h4 class="CenterText">Where:</h4>
+          <ul id="FormulaVariables">
+            <li>f = Your Flour Serving Size (grams)</li>
+            <li>p = Protein Content Per Serving of Your Flour (grams)</li>
+            <li>g = Gluten Percentage in Your Flour</li>
+            <li>F = Desired Final Flour Amount (grams)</li>
+            <li>G = Desired Final Gluten %</li>
+            <li>r = Required Flour (grams)</li>
+            <li>w = Required Wheat Gluten (grams)</li>
+          </ul>
 
-        <hr />
-
-        <h4>Your Flour Mixture</h4>
-        <div class="LabelFieldRow">
-          <span class="label">Your Flour: </span>
-          <span id="target7">CALC</span> grams
         </div>
-        <div class="LabelFieldRow">
-          <span class="label">Wheat Gluten: </span>
-          <span id="target8">CALC</span> grams
-        </div>
-      </form>
+      </div>
     </div>
 
-    <div id="FlourProtnCalc">
-      <h2>Flour Protien Calculator</h2>
-      <p class="PageDesc">Use this page to calculate the protein level of your flour.</p>
-      <form>
-        <h4>Flour Being Used</h4>
-        <div class="LabelFieldRow">
-          <span class="label">Your Flour Serving Size:</span>
-          <input id="target" type="text" value="30"> grams
-        </div>
-        <div class="LabelFieldRow">
-          <span class="label">Protein Per Serving:</span>
-          <input id="target3" type="text" value="4"> grams
-        </div>
-        <div class="LabelFieldRow">
-          <span class="label">Protein Percentage:</span>
-          <span id="target4">CALC</span> %
-        </div>
-      </form>
-    </div>
 
-    <div id="FlourWeightConversion">
-      <h2>Flour Volume to Weight Conversion</h2>
-      <p class="PageDesc">Use this page to calculate the protein level of your flour.</p>
-      <form>
-        <h4>Flour Being Used</h4>
-        <div class="LabelFieldRow">
-          <span class="label">Your Flour Serving Size:</span>
-          <input id="target" type="text" value="30"> grams
-        </div>
-        <div class="LabelFieldRow">
-          <span class="label">Protein Per Serving:</span>
-          <input id="target3" type="text" value="4"> grams
-        </div>
-        <div class="LabelFieldRow">
-          <span class="label">Protein Percentage:</span>
-          <span id="target4">CALC</span> %
-        </div>
-      </form>
-    </div>
+
+
+
+
+
   </div>
 </body>
 </html>

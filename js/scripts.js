@@ -23,4 +23,27 @@ $(function() {
 
   calcFields();
 
+  $('#FlourWhtGlutnFormula').flip({
+    trigger: 'manual'
+  });
+
+  $('#CardNav a').on('click',function(event) {
+    if (!$(this).hasClass('Current')) {
+      $("#FlourWhtGlutnFormula").flip('toggle');
+      $('#CardNav a').removeClass('Current');
+      $(this).addClass('Current');
+      console.log('link clicked, no current class');
+    }
+    event.preventDefault();
+  })
+
+
+  $( "#AboutToggle" ).click(function() {
+    $( "#AboutInfo" ).slideToggle( "fast", function() {
+      // Animation complete.
+    });
+    $(this).toggleClass("DetailOpen");
+    event.preventDefault();
+  });
+
 });
