@@ -15,3 +15,8 @@ If you notice discrepancies, or better ways to do any of these things, feel free
 I had thought to (but won't likely-- no time) add some additional functionality to this, such as:
 * Drop down slector of common brand name flours to auto-populate flour stats (serving size / protien)
 * Flour cups to weight calculator, generic or bramd based calculations
+
+## Demo
+
+You can see the working version of this app here:
+[http://flourmath.bradfordrobertson.com/]
