@@ -167,7 +167,7 @@ hr {
 .InnerFlourWhtGlutnFromulaWrap {
   background-color: #fff;
   padding: 1px 20px;
-  margin: 5px 0 60px;
+  margin: 5px 0 0;
 }
 
 .PageDesc,
@@ -248,4 +248,30 @@ ul#FormulaVariables {
 
 ul#FormulaVariables li {
   margin: 3px 0;
+}
+
+#GitHubLink a {
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    margin: 10px 0 60px;
+}
+
+#GitHubLink a:hover {
+    text-decoration: underline;
+}
+
+#GitHubLink a span {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+span.OctoCat {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background: transparent url('../images/Octocat.jpg') no-repeat center center / contain;
+    margin: 0 5px 0 0;
 }
